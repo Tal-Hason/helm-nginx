@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-route
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: demo-nginx
+    server: 'https://kubernetes.default.svc'
+  project: demo
+  source:
+    path: route
+    repoURL: 'https://github.com/Tal-Hason/helm-nginx.git'
+    targetRevision: main
+  syncPolicy:
+    automated:
+      selfHeal: true
+
