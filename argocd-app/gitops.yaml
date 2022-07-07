@@ -59,7 +59,7 @@ spec:
       g, cluster-admins, role:admin
       g, rbacsystem:cluster-admins, role:admin
       g, rbacsystem:admins, role:admin
-      p, developer, *, *, *
+      p, developer, projects, create, *
     scopes: '[groups]'
   repo:
     resources:
