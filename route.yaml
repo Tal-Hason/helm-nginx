@@ -1,0 +1,23 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: nginx-demo
+  namespace: demo-nginx
+  finalizers:
+    - foregroundDeletion
+  labels:
+    app.kubernetes.io/instance: demo-nginx
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: cherry-awesome-app
+    app.kubernetes.io/version: v1
+    helm.sh/chart: nginx-0.1.1
+spec:
+  host: nginx-demo-demo-nginx.apps-crc.testing
+  to:
+    kind: Service
+    name: cherry-chart
+    weight: 100
+  port:
+    targetPort: http
+  wildcardPolicy: None
+
