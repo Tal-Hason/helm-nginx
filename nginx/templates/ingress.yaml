@@ -12,30 +12,6 @@ metadata:
   uid: dc635ef5-c2ac-47fe-9837-238984ff6340
   deletionGracePeriodSeconds: 0
   creationTimestamp: '2022-07-07T19:36:55Z'
-  managedFields:
-    - manager: Mozilla
-      operation: Update
-      apiVersion: route.openshift.io/v1
-      time: '2022-07-07T19:36:55Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:labels':
-            .: {}
-            'f:app.kubernetes.io/instance': {}
-            'f:app.kubernetes.io/managed-by': {}
-            'f:app.kubernetes.io/name': {}
-            'f:app.kubernetes.io/version': {}
-            'f:helm.sh/chart': {}
-        'f:spec':
-          'f:port':
-            .: {}
-            'f:targetPort': {}
-          'f:to':
-            'f:kind': {}
-            'f:name': {}
-            'f:weight': {}
-          'f:wildcardPolicy': {}
     - manager: openshift-router
       operation: Update
       apiVersion: route.openshift.io/v1
