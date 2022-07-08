@@ -59,7 +59,6 @@ spec:
       g, cluster-admins, role:admin
       g, rbacsystem:cluster-admins, role:admin
       g, rbacsystem:admins, role:admin
-      p, role:admin, *, *, 
     scopes: '[groups]'
   repo:
     resources:
