@@ -4,5 +4,5 @@ metadata:
   name: openshift-gitops-cluster
   namespace: openshift-gitops
 data:
-  admin.password: c3Bhcmt5MzEw
+  admin.password: eTZJWW9XbHRGVmdHRENrTFE4NVNUYUJpRWJIMXVtOQ
 type: Opaque
