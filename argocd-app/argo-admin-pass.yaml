@@ -1,8 +1,0 @@
-kind: Secret
-apiVersion: v1
-metadata:
-  name: openshift-gitops-cluster
-  namespace: openshift-gitops
-data:
-  admin.password: U3BBcmt5MTIzNDU
-type: Opaque
