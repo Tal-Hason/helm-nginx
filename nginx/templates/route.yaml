@@ -1,0 +1,17 @@
+{{- $fullName := include "nginx.fullname" . -}}
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "nginx.labels" . | nindent 4 }}
+spec:
+  host: nginx-demo-demo-nginx.apps-crc.testing
+  to:
+    kind: Service
+    name: cherry-chart
+    weight: 100
+  port:
+    targetPort: http
+  wildcardPolicy: None
+
