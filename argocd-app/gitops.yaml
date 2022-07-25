@@ -2,8 +2,18 @@ apiVersion: argoproj.io/v1alpha1
 kind: ArgoCD
 metadata:
   name: openshift-gitops
-  managedFields:
   namespace: openshift-gitops
+  ownerReferences:
+    - apiVersion: pipelines.openshift.io/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: GitopsService
+      name: cluster
+      uid: bb3972fc-ec56-44af-b682-3642257cd77b
+  finalizers:
+    - argoproj.io/finalizer
+  labels:
+    app.kubernetes.io/instance: argocd-app-repo
 spec:
   server:
     autoscale:
@@ -54,10 +64,12 @@ spec:
         memory: 512Mi
   rbac:
     policy: |
-      g, system:cluster-admins, role:admin
+      g, system:cluster-admins, role:admin 
       g, cluster-admins, role:admin
-      g, rbacsystem:cluster-admins, role:admin
-      g, rbacsystem:admins, role:admin
+      g, developer:developer, role:admin 
+      g, developer:kubeadmin, role:admin  
+      g, developer, role:admin 
+      g, argocdadmins, role:admin
     scopes: '[groups]'
   repo:
     resources:
@@ -113,4 +125,3 @@ spec:
         cpu: 250m
         memory: 1Gi
     sharding: {}
-
